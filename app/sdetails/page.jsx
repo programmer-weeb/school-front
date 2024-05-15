@@ -113,7 +113,7 @@ export default StudentDetails;
 function Schedual() {
 	return (
 		// <div className="bg-gray-800 p-6 rounded-lg shadow w-full ">
-		<div className="bg-gray-800 p-6 rounded-lg shadow ">
+		<div className="bg-gray-800 p-6 rounded-lg shadow text-xs	">
 			<h4 className="text-xl font-semibold mb-4 text-white">
 				Schedule Details
 			</h4>
