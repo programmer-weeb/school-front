@@ -1,24 +1,24 @@
-// "use client";
-// import React, {useState, useEffect} from "react";
-import Links from "../../_comps/Links";
-import LinksFromChatgpt from "@/app/_comps/LinksFromChat";
+"use client";
 
-export default async function Page({ params }) {
-	const studentId = params.studentId;
-	// ... rest of your component
-	const response = await fetch(
-		`https://jsonplaceholder.typicode.com/posts/${studentId}`
-	);
-	const student = await response.json();
-	return (
-		<div>
-			<br /> <br />
-			<section className="container px-4 ">
-				
-			</section>
-		</div>
-	);
+import { usePathname, useRouter } from 'next/navigation';
+
+export default function Page({ params }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const studentId = params.studentId;
+
+  // Check if the current path matches the pattern and redirect if necessary
+  if (pathname === `/students/${studentId}`) {
+    const redirectPath = `/students/${studentId}/general`;
+    router.push(redirectPath);
+  }
+  return (
+    <div>
+      {/* Your component content here */}
+    </div>
+  );
 }
+
 
 
 function UnderTheCenteredButtons() {
