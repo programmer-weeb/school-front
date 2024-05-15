@@ -1,5 +1,6 @@
 "use client";
 
+import StudentDetails from '@/app/sdetails/page';
 import { usePathname, useRouter } from 'next/navigation';
 
 export default function Page({ params }) {
@@ -8,13 +9,14 @@ export default function Page({ params }) {
   const studentId = params.studentId;
 
   // Check if the current path matches the pattern and redirect if necessary
-  if (pathname === `/students/${studentId}`) {
-    const redirectPath = `/students/${studentId}/general`;
-    router.push(redirectPath);
-  }
+  // if (pathname === `/students/${studentId}`) {
+  //   const redirectPath = `/students/${studentId}/general`;
+  //   router.push(redirectPath);
+  // }
   return (
     <div>
       {/* Your component content here */}
+			<StudentDetails />
     </div>
   );
 }
