@@ -1,15 +1,3 @@
-// export default function Layout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <div>
-//       <aComp />
-//       {children}
-//     </div>
-//   );
-// }
 'use client'
 
 import { TabNavigation } from "@/app/_comps/LinksFromChat";
@@ -81,7 +69,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 			{/* middle buttons */}
 			<div className="flex justify-center items-center mb-1">
-				<TabNavigation activeTab="messages" tabs={[
+				<TabNavigation tabs={[
 					{ label: '📋 General', href: '/general' },
 					{ label: '📋 Exam', href: '/exam' },
 					{ label: '📋 Medical records', href: '/medical-records' },
