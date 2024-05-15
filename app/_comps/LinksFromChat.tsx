@@ -25,7 +25,7 @@ interface LinksProps {
 //   activeTab: string;
 //   setActiveTab: (tab: string) => void;
 // }) => {
-export const TabNavigation = ({ tabs, activeTab, setActiveTab, params, studentId }: LinksProps) => {
+export const TabNavigation = ({ tabs, activeTab, studentId }: LinksProps) => {
 	// get the current path
 	const pathname = usePathname();
   // const { studentId } = params;
