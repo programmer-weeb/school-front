@@ -1,4 +1,6 @@
+'use client'
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { PropsWithChildren } from "react";
 
 export default function WholeSideNav() {
@@ -34,15 +36,18 @@ export default function WholeSideNav() {
 
 
 function SideNavLinks({ linksNames }: { linksNames: string[] }) {
+
+	const pathname = usePathname();
+	
 	return (
 		<>
 			{linksNames.map(linkStingName => {
-				// remove first 2 characters from the string and replace spaces with dash
-				// const urlString = linkStingName.slice(2).replace(' ', '-').toLowerCase()
 				const urlString = linkStingName.toLowerCase()
+        const isActive = pathname.includes(urlString)				
+				
 				return (
 					<Link
-						className="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+						className={`flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg  dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 } ${isActive ? 'bg-gray-800 text-gray-200': ''}`}
 						href={`/${urlString}`}
 					>
 						<span className="mx-2 text-sm font-medium">
