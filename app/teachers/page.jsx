@@ -36,7 +36,7 @@ export default async function Teachers() {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-          {data.map((teacher) => (
+          {data.teachers.map((teacher) => (
             <Link key={teacher.id} href={`/teachers/${teacher.id}`}>
               <tr>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
