@@ -10,7 +10,7 @@ export default async function Teachers() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     data = await response.json();
-    console.log(data);
+    console.log(data.teachers)
   } catch (error) {
     console.error("There was a problem with the fetch operation:", error);
     return <div>Failed to load data.</div>;
@@ -35,10 +35,10 @@ export default async function Teachers() {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-          {data.teachers.map((teacher) => (
+        {data.teachers?.map((teacher) => (
+          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             <Link key={teacher.id} href={`/teachers/${teacher.id}`}>
-              <tr>
+              <tr className="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
                   {teacher.firstName}
                 </td>
@@ -53,8 +53,8 @@ export default async function Teachers() {
                 </td>
               </tr>
             </Link>
-          ))}
-        </tbody>
+          </tbody>          
+        ))}
       </table>
     </div>
   );
