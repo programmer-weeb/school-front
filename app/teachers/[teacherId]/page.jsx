@@ -1,8 +1,8 @@
 import React from "react";
 
 const TeacherDetails = async({params}) => {
-const teacherId = req.teacherId
-const reponse = await(fetch(''))
+const teacherId = params.teacherId
+// const reponse = await(fetch(''))
   return (
     <div className="min-h-screen bg-gray-900 text-gray-300 p-10">
       <header className="w-full flex justify-between items-center mb-10">
