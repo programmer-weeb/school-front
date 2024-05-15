@@ -82,10 +82,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			{/* middle buttons */}
 			<div className="flex justify-center items-center mb-1">
 				<TabNavigation activeTab="messages" tabs={[
-					{ label: '📋 Messages', href: '/messages' },
 					{ label: '📋 General', href: '/general' },
 					{ label: '📋 Exam', href: '/exam' },
-					{ label: '📋 Assignment', href: '/assignment' },
+					{ label: '📋 Medical records', href: '/medical-records' },
+					{ label: '📋 Bus location', href: '/bus-location' },
+					{ label: '📋 Ai report', href: '/ai-report' },
 				]} studentId={studentId}  />
 			</div>
       {children}
