@@ -1,8 +1,8 @@
-import React from "react";
+'use client'
 
-const TeacherDetails = async({params}) => {
-const teacherId = params.teacherId
-// const reponse = await(fetch(''))
+const TeacherDetails = ({ params }) => {
+	const { teacherId } = params;
+	console.log(teacherId)
   return (
     <div className="min-h-screen bg-gray-900 text-gray-300 p-10">
       <header className="w-full flex justify-between items-center mb-10">
@@ -76,7 +76,7 @@ const teacherId = params.teacherId
             </p>
           </div>
         </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow w-full">
+        <div className="bg-gray-800 p-6 rounded-lg shadow w-full ">
           <h4 className="text-xl font-semibold mb-4 text-white">
             Schedule Details
           </h4>
