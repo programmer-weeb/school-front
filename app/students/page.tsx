@@ -5,7 +5,8 @@ export default async function Students() {
   return (
     <div>
       {/* {JSON.stringify(arrOfStudent)} */}
-      <StudentTable students={arrOfStudent} />
+      {/* <StudentTable students={arrOfStudent} /> */}
+      <StudentTable2 students={arrOfStudent} />
     </div>
   )
 }
@@ -36,3 +37,36 @@ function StudentTable({ students }: { students: { id: number, title: string, bod
     </div>
   );
 }
+
+
+const StudentTable2 = ({ students }: { students: { id: number, title: string, body: string }[] }) => {
+  return (
+    <div className="container mx-auto mt-4">
+      <table className="table-auto border-collapse text-white">
+        <thead>
+          <tr className="bg-gray-800">
+            <th className="px-3 py-2">ID</th>
+            <th className="px-3 py-2">Name</th>
+            <th className="px-3 py-2">Parent Name</th>
+            <th className="px-3 py-2">City</th>
+            <th className="px-3 py-2">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((student) => (
+            <tr key={student.id} className="border-b border-gray-700 hover:bg-gray-600">
+              <td className="px-3 py-2">{student.id}</td>
+              <Link href={`/students/${student.id}`}>
+                <td className="px-3 py-2">{student.title}</td>
+              </Link>
+              <td className="px-3 py-2">{student.body}</td>
+              <td className="px-3 py-2">Alex</td>
+              <td className="px-3 py-2">NotAlex</td>
+              {/* <td className="px-3 py-2">{student.grade}</td> */}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
