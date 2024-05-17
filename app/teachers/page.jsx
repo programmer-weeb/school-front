@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default async function Teachers() {
+export async function Teachers() {
   let data = [];
   try {
     const response = await fetch(
@@ -61,3 +61,46 @@ export default async function Teachers() {
     </div>
   );
 }
+
+export default async function BetterTeachersTable() {
+	const arrOfTeachers = await ((await fetch("https://jsonplaceholder.typicode.com/posts")).json())
+
+	return (
+		<div>
+			<TeachersTable teachers={arrOfTeachers} />
+		</div>
+	)
+}
+
+function TeachersTable({teachers}) {
+	return (
+    <div className="container mx-auto mt-4">
+      <table className="table-auto border-collapse text-white">
+        <thead>
+          <tr className="bg-gray-800">
+            <th className="px-3 py-2">ID</th>
+            <th className="px-3 py-2">Name</th>
+            <th className="px-3 py-2">Parent Name</th>
+            <th className="px-3 py-2">City</th>
+            <th className="px-3 py-2">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {teachers.map((teacher) => (
+            <tr key={teacher.id} className="border-b border-gray-700 hover:bg-gray-600">
+              <td className="px-3 py-2">{teacher.id}</td>
+              <Link href={`/teachers/${teacher.id}`}>
+                <td className="px-3 py-2">{teacher.title}</td>
+              </Link>
+              <td className="px-3 py-2">{teacher.body}</td>
+              <td className="px-3 py-2">Alex</td>
+              <td className="px-3 py-2">NotAlex</td>
+              {/* <td className="px-3 py-2">{teacher.grade}</td> */}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
