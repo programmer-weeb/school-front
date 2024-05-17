@@ -20,11 +20,9 @@ export default function WholeSideNav() {
 					<nav className="flex-1 -mx-3 space-y-3 ">
 						{/* side bar search */}
 						<SideNavSearch />
-
 						{/* side bar links */}
 						{/* <SideNavLinks linksNames={['📋 Dashboard', '🧑🏻‍🎓 Students', '🧑‍🏫 Teachers', '🕖 Events', '💰 Finance']} /> */}
-						<SideNavLinks linksNames={['Dashboard', 'Students', 'Teachers', 'Events', 'Finance']} />
-
+						<SideNavLinks linksNames={['Dashboard', 'Students', 'Teachers', 'Events', 'Finance', 'Calender']} />
 					</nav>
 
 					<BottomPhotoOfSideNav />
