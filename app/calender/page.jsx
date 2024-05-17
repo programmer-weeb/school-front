@@ -55,13 +55,15 @@ export default function Calender() {
   }
 
   return (
-    <Stack direction={'row'}>
-      <Paper className='demo-app-sidebar'>
-        <h2 style={{ textAlign: 'center' }}>
-          All Events ({currentEvents.length})
-        </h2>
-        <ul>{currentEvents.map(renderSidebarEvent)}</ul>
-      </Paper>
+    <Stack direction={'row'} className='text-white'>
+      <div className='dark:bg-slate-800'>
+        <Paper className='demo-app-sidebar'>
+          <h2 style={{ textAlign: 'center' }}>
+            All Events ({currentEvents.length})
+          </h2>
+          <ul>{currentEvents.map(renderSidebarEvent)}</ul>
+        </Paper>
+      </div>
 
       <div className='demo-app-main'>
         <FullCalendar
@@ -95,16 +97,18 @@ export default function Calender() {
 
 function renderSidebarEvent(event) {
   return (
-    <li key={event.id}>
-      <b>
-        {formatDate(event.start, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-        })}
-      </b>
-      <i>{event.title}</i>
-    </li>
+    <div className='dark:bg-slate-800 text-white'>
+      <li key={event.id}>
+        <b>
+          {formatDate(event.start, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
+        </b>
+        <i>{event.title}</i>
+      </li>
+    </div>
   )
 }
 
