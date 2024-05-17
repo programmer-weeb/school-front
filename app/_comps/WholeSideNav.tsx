@@ -22,7 +22,7 @@ export default function WholeSideNav() {
 						<SideNavSearch />
 						{/* side bar links */}
 						{/* <SideNavLinks linksNames={['📋 Dashboard', '🧑🏻‍🎓 Students', '🧑‍🏫 Teachers', '🕖 Events', '💰 Finance']} /> */}
-						<SideNavLinks linksNames={['Dashboard', 'Students', 'Teachers', 'Events', 'Finance', 'Calender']} />
+						<SideNavLinks linksNames={['Dashboard', 'Students', 'Teachers', 'Events', 'Finance']} />
 					</nav>
 
 					<BottomPhotoOfSideNav />
