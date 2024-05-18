@@ -1,6 +1,5 @@
 "use client";
 
-import Buslocation from "@/app/students/[studentId]/bus-location/page";
 import React, { useState } from "react";
 
 const StudentDetails = ({ params }) => {
@@ -23,7 +22,7 @@ const StudentDetails = ({ params }) => {
 			case 'medicalRecords':
 				return <div>Medical Records Content</div>;
 			case 'busLocation':
-				return <div><Buslocation /></div>;
+				return <div>Buslocaiton</div>;
 			default:
 				return <div>General Content</div>;
 		}
