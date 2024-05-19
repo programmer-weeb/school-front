@@ -2,7 +2,14 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { Alert, Button, MenuItem, Snackbar, Stack } from "@mui/material";
+import {
+  Alert,
+  Button,
+  MenuItem,
+  Snackbar,
+  Stack,
+  useTheme,
+} from "@mui/material";
 import { useForm } from "react-hook-form";
 
 const regEmail =
@@ -18,8 +25,8 @@ const data = [
     label: "Admin",
   },
   {
-    value: "Manger",
-    label: "Manger",
+    value: "Manager",
+    label: "Manager",
   },
   {
     value: "User",
@@ -35,6 +42,8 @@ const Form = () => {
   } = useForm();
 
   const [open, setOpen] = React.useState(false);
+
+  const theme = useTheme();
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -79,9 +88,14 @@ const Form = () => {
               required: true,
               minLength: 3,
             })}
-            sx={{ flex: 1 }}
+            sx={{ flex: 1, bgcolor: "#111827" }}
             label="First Name"
             variant="filled"
+            InputLabelProps={{
+              style: {
+                color: theme.palette.mode === "light" ? "#fff" : "#000",
+              },
+            }}
           />
 
           <TextField
@@ -95,9 +109,14 @@ const Form = () => {
               required: true,
               minLength: 3,
             })}
-            sx={{ flex: 1 }}
+            sx={{ flex: 1, bgcolor: "#111827" }}
             label="Last Name"
             variant="filled"
+            InputLabelProps={{
+              style: {
+                color: theme.palette.mode === "light" ? "#fff" : "#000",
+              },
+            }}
           />
         </Stack>
 
@@ -110,8 +129,12 @@ const Form = () => {
             required: true,
             pattern: regEmail,
           })}
+          sx={{ bgcolor: "#111827" }}
           label="Email"
           variant="filled"
+          InputLabelProps={{
+            style: { color: theme.palette.mode === "light" ? "#fff" : "#000" },
+          }}
         />
 
         <TextField
@@ -125,9 +148,27 @@ const Form = () => {
           })}
           label="Contact Number"
           variant="filled"
+          sx={{ bgcolor: "#111827" }}
+          InputLabelProps={{
+            style: { color: theme.palette.mode === "light" ? "#fff" : "#000" },
+          }}
         />
-        <TextField label="Adress 1" variant="filled" />
-        <TextField label="Adress 2" variant="filled" />
+        <TextField
+          label="Address 1"
+          variant="filled"
+          sx={{ bgcolor: "#111827" }}
+          InputLabelProps={{
+            style: { color: theme.palette.mode === "light" ? "#fff" : "#000" },
+          }}
+        />
+        <TextField
+          label="Address 2"
+          variant="filled"
+          sx={{ bgcolor: "#111827" }}
+          InputLabelProps={{
+            style: { color: theme.palette.mode === "light" ? "#fff" : "#000" },
+          }}
+        />
 
         <TextField
           variant="filled"
@@ -135,6 +176,10 @@ const Form = () => {
           select
           label="Role"
           defaultValue="User"
+          sx={{ bgcolor: "#111827" }}
+          InputLabelProps={{
+            style: { color: theme.palette.mode === "light" ? "#fff" : "#000" },
+          }}
         >
           {data.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -174,5 +219,3 @@ const Form = () => {
 };
 
 export default Form;
-
-// testing
