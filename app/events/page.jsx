@@ -115,7 +115,7 @@ function renderSidebarEvent(event) {
 function renderEventContent(eventInfo) {
   return (
     <>
-      <Header title='DASHBOARD' subTitle='Welcome to you dashboard' />
+      <Header />
       <b>{eventInfo.timeText}</b>
       <i>{eventInfo.event.title}</i>
     </>

@@ -1,3 +1,5 @@
+'use client'
+import { useState } from "react";
 import Link from "next/link";
 
 const TableHeader = ({ headers }) => {
@@ -68,6 +70,26 @@ const TableRow = ({ data }) => {
 
 // Main Table component
 const Table = ({ headers, data }) => {
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 5;
+
+	const handlePrevPage = () => {
+		if (currentPage > 1) {
+			setCurrentPage(currentPage - 1);
+		}
+	};
+
+	const handleNextPage = () => {
+		if (currentPage < Math.ceil(data.length / itemsPerPage)) {
+			setCurrentPage(currentPage + 1);
+		}
+	};
+
+	const currentData = data.slice(
+		(currentPage - 1) * itemsPerPage,
+		currentPage * itemsPerPage
+	);
+
 	return (
 		<div className="bg-gray-900 text-white p-4 rounded-lg shadow-lg w-full">
 			<div className="flex justify-between items-center mb-4">
@@ -86,9 +108,25 @@ const Table = ({ headers, data }) => {
 			<table className="min-w-full divide-y divide-gray-700">
 				<TableHeader headers={headers} />
 				<tbody className="bg-gray-800 divide-y divide-gray-700">
-					<TableRow data={data} />
+					<TableRow data={currentData} />
 				</tbody>
 			</table>
+			<div className="flex justify-between mt-4">
+				<button
+					className="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 focus:outline-none"
+					onClick={handlePrevPage}
+					disabled={currentPage === 1}
+				>
+					Previous
+				</button>
+				<button
+					className="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600 focus:outline-none"
+					onClick={handleNextPage}
+					disabled={currentPage === Math.ceil(data.length / itemsPerPage)}
+				>
+					Next
+				</button>
+			</div>
 		</div>
 	);
 };
